@@ -1,16 +1,57 @@
-# React + Vite
+# Outkast Nano Prompt
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A prompt builder for product photography, made for putting a t-shirt design on a model and getting
+a consistent image back.
 
-Currently, two official plugins are available:
+You pick the shot rather than describe it — pose, camera, lighting, background, finish, aspect
+ratio — and it writes the prompt. The point is repeatability: the same lighting and framing across
+a whole product run, instead of a slightly different photoshoot every time you retype a sentence.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## What you choose
 
-## React Compiler
+| | |
+|---|---|
+| **Garment** | t-shirt colour as a HEX value |
+| **References** | a face and a design, by URL or file id |
+| **Pose** | including things like *contrapposto relaxed* |
+| **Camera & lighting** | *clamshell beauty*, *beauty dish pop*, *gel accent subtle* |
+| **Background & finish** | *gradient noir*, *editorial filmic*, *grain kissed*, *light grey matte* |
+| **Overlay text side** | left, right, bottom |
+| **Aspect & size** | 1:1 1080×1080 · 4:5 1080×1350 · 9:16 1080×1920 · 2:3 1000×1500 · 16:9 |
+| **Extras** | your own key → value pairs, for anything the form does not cover |
 
-The React Compiler is not enabled on this template. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+It gives you back a written prompt and a JSON payload, either of which you can copy.
 
-## Expanding the ESLint configuration
+## Style Lock
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**The reason this exists rather than a notes file.** Turn Style Lock on and the look — lighting,
+background, finish — is held fixed while you change the garment, the design or the pose. That is
+what makes twenty products look like one catalogue instead of twenty separate attempts.
+
+## Copy URL
+
+Your whole configuration is encoded into the address bar, so a preset is just a link. Send it to
+someone and they open the form exactly as you left it. Nothing is stored on a server, because
+there is no server.
+
+## It sends nothing anywhere
+
+No API calls, no analytics, no account. It is a single React page that runs in your browser and
+builds text. The only network traffic is loading the page itself.
+
+## Running it
+
+```bash
+npm install
+npm run dev
+```
+
+Vite, React and Tailwind. `src/App.jsx` is the whole application — 646 lines, no backend.
+
+## Status
+
+**Built for one clothing business and shared as-is.** It is not a general-purpose tool and was
+never meant to be. If the shape is useful to you — pick the variables, lock the style, share the
+preset as a URL — take it.
+
+Built in Chennai.
